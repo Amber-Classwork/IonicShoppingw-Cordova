@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Shopping List
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,17 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ng-container *ngIf="items.length > 0; else emptyContent">
+      <p>This will show if the content size is greater than zero</p>
+    </ng-container>
+    <ng-template #emptyContent>
+      <p>Else this will show</p>
+      
+    </ng-template>
+    <ion-fab vertical="bottom" horizontal="end" edge slot="absolute">
+      <ion-fab-button  (click)="openModal()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </div>
 </ion-content>
