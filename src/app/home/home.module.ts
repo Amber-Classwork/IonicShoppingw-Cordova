@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { AddFormModalComponent } from '../Components/add-form-modal/add-form-modal.component';
+import { ShoppingListService } from '../Services/item.service';
 
 
 @NgModule({
@@ -16,6 +17,6 @@ import { AddFormModalComponent } from '../Components/add-form-modal/add-form-mod
     HomePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, AddFormModalComponent]
+  declarations: [HomePage, AddFormModalComponent],
 })
 export class HomePageModule {}

@@ -3,6 +3,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { Category } from 'src/app/Interfaces/category.interface';
+import { CategoryService } from 'src/app/Services/category.service';
 
 @Component({
   selector: 'app-add-form-modal',
@@ -11,11 +13,13 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddFormModalComponent implements OnInit {
   name = 'string';
-  constructor(private modalCtrl: ModalController) { }
+  categories: Category[] = [];
+  constructor(private modalCtrl: ModalController, private categoryService: CategoryService) { }
   addItemForm = new FormGroup({
     item_name: new FormControl(''),
     price: new FormControl(''),
     quantity:new FormControl(''),
+    category: new FormControl(''),
   });
   ngOnInit() {}
   cancel() {
@@ -24,6 +28,11 @@ export class AddFormModalComponent implements OnInit {
 
   confirm() {
     return this.modalCtrl.dismiss(this.name, 'confirm');
+  }
+  getAllCategories() {
+    this.categoryService.getAllCategories().subscribe((res)=>{
+      this.categories = res.data;
+    });
   }
 
 }
