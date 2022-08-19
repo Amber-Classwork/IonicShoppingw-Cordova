@@ -15,8 +15,9 @@ import { Item } from '../Interfaces/item.interface';
   providedIn: 'root'
 })
 export class ShoppingListService {
-  private API_URL = "http://localhost:3000/api/v1/shopping-list";
-  constructor(private http: HttpClient) { }
+  private API_URL = "http://localhost:3000/shopping_list";
+
+    constructor(private http: HttpClient) { }
 
 
 

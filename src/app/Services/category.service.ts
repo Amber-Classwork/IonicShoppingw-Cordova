@@ -14,8 +14,7 @@ import { Response } from '../Interfaces/api-response.interface';
 })
 export class CategoryService {
 
-  private API_URL = "http://localhost:3000/api/v1/categories";
-
+  private API_URL = "http://localhost:3000/categories";
   constructor(private http: HttpClient) { }
 
   getAllCategories(): Observable<Response<Category[]>>{
