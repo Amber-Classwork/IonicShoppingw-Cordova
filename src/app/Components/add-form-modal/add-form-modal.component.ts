@@ -21,7 +21,9 @@ export class AddFormModalComponent implements OnInit {
     quantity:new FormControl(''),
     category: new FormControl(''),
   });
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAllCategories();
+  }
   cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
